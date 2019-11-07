@@ -6,6 +6,25 @@
 2、教程地址：https://www.w3cschool.cn/wkspring/  
 ------------------------------------------------
 
+二、项目代码
+==========
+## 1、Spring IOC容器  
+1). IOC容器模型图
+	
+	![https://atts.w3cschool.cn/attachments/image/wk/wkspring/ioc1.jpg]
+
+2). Spring BeanFactory容器  
+
+	测试代码: com.jacky.beanFactory.bean包下面  
+
+3). Spring ApplicationContext容器
+	
+* ApplicationContext是BeanFactory的子接口，包含了所有的BeanFactory功能
+* ApplicationContext的主要实现类有：FileSystemXmlApplicationContext、ClassPathXmlApplicationContext、WebXmlApplicationContext
+
+	测试代码：com.jacky.applicationContext.bean包下面
+
+
 标题
 ====
 标题
