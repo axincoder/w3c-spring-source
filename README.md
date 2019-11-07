@@ -11,7 +11,7 @@
 ## 1、Spring IOC容器  
 1). IOC容器模型图
 	
-	![https://atts.w3cschool.cn/attachments/image/wk/wkspring/ioc1.jpg]
+![https://atts.w3cschool.cn/attachments/image/wk/wkspring/ioc1.jpg]
 
 2). Spring BeanFactory容器  
 
