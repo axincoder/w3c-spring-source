@@ -15,4 +15,12 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 		class="com.jacky.applicationContext.bean.HelloWorld">
 		<property name="message" value="Hello World2"></property>
 	</bean>
+
+	<!-- 作用域示例 -->
+	<bean name="helloWorld3" class="com.jacky.scope.bean.HelloWorld"
+		scope="singleton">
+	</bean>
+	<bean name="helloWorld4" class="com.jacky.scope.bean.HelloWorld"
+		scope="prototype"></bean>
+
 </beans>

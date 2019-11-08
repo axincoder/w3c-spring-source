@@ -50,6 +50,13 @@ request                | 每次HTTP请求都会创建一个新的Bean，该作�
 session                | 同一个HTTP Session共享一个Bean，不同Session使用不同的Bean，仅适用于WebApplicationContext环境
 global-session         | 一般用于Portlet应用环境，该运用域仅适用于WebApplicationContext环境
 
+	测试代码：com.jacky.scope.bean包下
+
+
+6). Bean的生命周期
+* Bean的生命周期可以表达为：Bean的定义——Bean的初始化——Bean的使用——Bean的销毁 
+* 为了初始化和销毁bean，我们只要声明带有 init-method 和/或 destroy-method 参数的
+
 
 
 标题
