@@ -25,6 +25,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
 	<bean name="helloWorld4" class="com.jacky.scope.bean.HelloWorld"
 		scope="prototype"></bean>
 
+
 	<!-- 生命周期（初始化、销毁) -->
 	<bean name="helloWorld5"
 		class="com.jacky.lifeCycle.bean.HelloWorld" init-method="init"
