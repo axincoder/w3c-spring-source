@@ -57,6 +57,10 @@ global-session         | 一般用于Portlet应用环境，该运用域仅适用
 * Bean的生命周期可以表达为：Bean的定义——Bean的初始化——Bean的使用——Bean的销毁 
 * 为了初始化和销毁bean，我们只要声明带有 init-method 和/或 destroy-method 参数的
 
+	测试代码：com.jakcy.lifeCycle.bean包下
+	
+
+
 
 
 标题
