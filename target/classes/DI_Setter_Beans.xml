@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 增加［xmlns:p="http://www.springframework.org/schema/p"］，用于配置p-namespace配置方式 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 基于Setter方法的依赖注入 -->
+
+	<!-- Definition for textEditor bean -->
+	<bean id="textEditor" class="com.jacky.di.setter.bean.TextEditor">
+		<property name="spellChecker" ref="spellChecker"></property>
+	</bean>
+
+	<!-- Definition for SpellChecker bean -->
+	<bean id="spellChecker"
+		class="com.jacky.di.setter.bean.SpellChecker"></bean>
+
+
+
+	<!-- 使用p-namespace实现XML配置 -->
+	<!-- 传统方式 -->
+	<!-- <bean id="john-classic" class="com.jacky.di.setter.bean.Person"> <property 
+		name="name" value="John Doe"></property> <property name="spouse" ref="jane"></property> 
+		</bean> <bean id="jane" class="com.jacky.di.setter.bean.Person"> <property 
+		name="name" value="John Doe"></property> </bean> -->
+	<!-- p-namespace方式 -->
+	<bean id="john-classic" class="com.jacky.di.setter.bean.Person"
+		p:name="John Doe" p:spouse-ref="jane" />
+	<bean id="jane" class="com.jacky.di.setter.bean.Person"
+		p:name="John Doe"></bean>
+
+</beans>
+
+

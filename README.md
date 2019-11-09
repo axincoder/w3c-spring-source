@@ -75,12 +75,74 @@ global-session         | 一般用于Portlet应用环境，该运用域仅适用
 ## 2、Spring依赖注入 
 Spring框架的核心功能之一就是通过依赖注入的方式来管理Bean之间的依赖关系。
 
-序号            |                       依赖注入类型 & 描述
---------       |                        ----
-1 	           |          Constructor-based dependency injection 当容器调用带有多个参数的构造函数类时，实现基于构造函数的 DI，每个代表在其他类中的一个依赖关系。
-2               |          Setter-based dependency injection 基于 setter 方法的 DI 是通过在调用无参数的构造函数或无参数的静态工厂方法实例化 bean 之后容器调用 beans 的 setter 方法来实现的。
+序号       |                       依赖注入类型 & 描述
+--------  |                        ----
+1 	      |          Constructor-based dependency injection 当容器调用带有多个参数的构造函数类时，实现基于构造函数的 DI，每个代表在其他类中的一个依赖关系。
+2         |          Setter-based dependency injection 基于 setter 方法的 DI 是通过在调用无参数的构造函数或无参数的静态工厂方法实例化 bean 之后容器调用 beans 的 setter 方法来实现的。
 
-1). 
+1). 基于构造器的依赖注入
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for textEditor bean -->
+   <bean id="textEditor" class="com.tutorialspoint.TextEditor">
+      <constructor-arg ref="spellChecker"/>
+   </bean>
+
+   <!-- Definition for spellChecker bean -->
+   <bean id="spellChecker" class="com.tutorialspoint.SpellChecker">
+   </bean>
+
+</beans>
+```
+
+2). 基于setter方法的依赖注入
+* setter方式注入
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for textEditor bean -->
+   <bean id="textEditor" class="com.tutorialspoint.TextEditor">
+      <property name="spellChecker" ref="spellChecker"/>
+   </bean>
+
+   <!-- Definition for spellChecker bean -->
+   <bean id="spellChecker" class="com.tutorialspoint.SpellChecker">
+   </bean>
+
+</beans>
+```
+* p-namespace方式注入
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id="john-classic" class="com.example.Person"
+      p:name="John Doe"
+      p:spouse-ref="jane"/>
+   </bean>
+
+   <bean name="jane" class="com.example.Person"
+      p:name="John Doe"/>
+   </bean>
+
+</beans>
+```
 
 
 标题
