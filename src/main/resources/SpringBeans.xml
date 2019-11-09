@@ -4,7 +4,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
-	default-init-method="init" default-destroy-method="destory">
+	>
+	<!-- default-init-method="init" default-destroy-method="destory" -->
 
 	<!-- Spring BeanFactory示例 -->
 	<bean id="helloWorld"
@@ -32,4 +33,21 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
 		destroy-method="destory">
 		<property name="message" value="Hello World5"></property>
 	</bean>
+	
+	<!-- Bean的后置处理器 -->
+	<bean name="helloWorld6" class="com.jacky.post.bean.HelloWorld" init-method="init" destroy-method="destory">
+		<property name="message" value="Hello World6"></property>
+	</bean>
+	<bean class="com.jacky.post.bean.InitHelloWorld"></bean>
+	
+	<!-- Bean的继承 -->
+	<bean name="helloWorld7" class="com.jacky.inheritance.bean.HelloWorld">
+		<property name="message1" value="Hello World7"></property>
+		<property name="message2" value="Hello Second World7"></property>
+	</bean>
+	<bean name="helloWorld8" class="com.jacky.inheritance.bean.HelloIndia" parent="helloWorld7">
+		<property name="message1" value="Hello India"></property>
+		<property name="message3" value="Namaste Inda"></property>
+	</bean>
+
 </beans>

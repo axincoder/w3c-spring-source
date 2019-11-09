@@ -59,7 +59,20 @@ global-session         | 一般用于Portlet应用环境，该运用域仅适用
 
 	测试代码：com.jakcy.lifeCycle.bean包下
 	
+7). Bean后置处理器
+* Bean 后置处理器允许在调用初始化方法前后对 Bean 进行额外的处理。
+* BeanPostProcessor接口定义了回调方法，实现再Bean初始化前后，进行额外的处理。
 
+	测试代码：com.jacky.post.bean包下
+
+8). Bean的继承
+* 子 bean 的定义继承父定义的配置数据。子定义可以根据需要重写一些值，或者添加其他值。
+* Spring Bean 定义的继承与 Java 类的继承无关，但是继承的概念是一样的。你可以定义一个父 bean 的定义作为模板和其他子 bean 就可以从父 bean 中继承所需的配置。
+
+	测试代码：com.jacky.inheritance.bean包下
+	
+
+## 2、Spring依赖注入 
 
 
 
