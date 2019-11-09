@@ -75,10 +75,10 @@ global-session         | 一般用于Portlet应用环境，该运用域仅适用
 ## 2、Spring依赖注入 
 Spring框架的核心功能之一就是通过依赖注入的方式来管理Bean之间的依赖关系。
 
-序号        |                       依赖注入类型 & 描述
-----       |                        ----
-1 	       |          Constructor-based dependency injection 当容器调用带有多个参数的构造函数类时，实现基于构造函数的 DI，每个代表在其他类中的一个依赖关系。
-2          |          Setter-based dependency injection 基于 setter 方法的 DI 是通过在调用无参数的构造函数或无参数的静态工厂方法实例化 bean 之后容器调用 beans 的 setter 方法来实现的。
+序号            |                       依赖注入类型 & 描述
+--------       |                        ----
+1 	           |          Constructor-based dependency injection 当容器调用带有多个参数的构造函数类时，实现基于构造函数的 DI，每个代表在其他类中的一个依赖关系。
+2               |          Setter-based dependency injection 基于 setter 方法的 DI 是通过在调用无参数的构造函数或无参数的静态工厂方法实例化 bean 之后容器调用 beans 的 setter 方法来实现的。
 
 1). 
 
