@@ -183,6 +183,123 @@ set	            |    它有助于连线一组值，但不能重复。
 map	            |    它可以用来注入名称-值对的集合，其中名称和值可以是任何类型。
 props	        |    它可以用来注入名称-值对的集合，其中名称和值都是字符串类型。
 
+* 集合配置示例(注入基本数据类型）
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for javaCollection -->
+   <bean id="javaCollection" class="com.tutorialspoint.JavaCollection">
+
+      <!-- results in a setAddressList(java.util.List) call -->
+      <property name="addressList">
+         <list>
+            <value>INDIA</value>
+            <value>Pakistan</value>
+            <value>USA</value>
+            <value>USA</value>
+         </list>
+      </property>
+
+      <!-- results in a setAddressSet(java.util.Set) call -->
+      <property name="addressSet">
+         <set>
+            <value>INDIA</value>
+            <value>Pakistan</value>
+            <value>USA</value>
+            <value>USA</value>
+        </set>
+      </property>
+
+      <!-- results in a setAddressMap(java.util.Map) call -->
+      <property name="addressMap">
+         <map>
+            <entry key="1" value="INDIA"/>
+            <entry key="2" value="Pakistan"/>
+            <entry key="3" value="USA"/>
+            <entry key="4" value="USA"/>
+         </map>
+      </property>
+
+      <!-- results in a setAddressProp(java.util.Properties) call -->
+      <property name="addressProp">
+         <props>
+            <prop key="one">INDIA</prop>
+            <prop key="two">Pakistan</prop>
+            <prop key="three">USA</prop>
+            <prop key="four">USA</prop>
+         </props>
+      </property>
+
+   </bean>
+
+</beans>
+```
+
+* 集合配置(注入Bean）
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Bean Definition to handle references and values -->
+   <bean id="..." class="...">
+
+      <!-- Passing bean reference  for java.util.List -->
+      <property name="addressList">
+         <list>
+            <ref bean="address1"/>
+            <ref bean="address2"/>
+            <value>Pakistan</value>
+         </list>
+      </property>
+
+      <!-- Passing bean reference  for java.util.Set -->
+      <property name="addressSet">
+         <set>
+            <ref bean="address1"/>
+            <ref bean="address2"/>
+            <value>Pakistan</value>
+         </set>
+      </property>
+
+      <!-- Passing bean reference  for java.util.Map -->
+      <property name="addressMap">
+         <map>
+            <entry key="one" value="INDIA"/>
+            <entry key ="two" value-ref="address1"/>
+            <entry key ="three" value-ref="address2"/>
+         </map>
+      </property>
+
+   </bean>
+
+</beans>
+```
+
+* 集合配置（注入null）
+```
+<bean id="..." class="exampleBean">
+   <property name="email"><null/></property>
+</bean>
+```
+
+* 集合配置（注入空字符串）
+```
+<bean id="..." class="exampleBean">
+   <property name="email" value=""/>
+</bean>
+```
+
+
+
 
 
 标题
