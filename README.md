@@ -101,6 +101,8 @@ Spring框架的核心功能之一就是通过依赖注入的方式来管理Bean�
 </beans>
 ```
 
+	测试代码:com.jacky.di.constructor.bean包下
+
 2). 基于setter方法的依赖注入
 * setter方式注入
 ```
@@ -122,6 +124,7 @@ Spring框架的核心功能之一就是通过依赖注入的方式来管理Bean�
 
 </beans>
 ```
+
 * p-namespace方式注入
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -143,6 +146,42 @@ Spring框架的核心功能之一就是通过依赖注入的方式来管理Bean�
 
 </beans>
 ```
+
+	测试代码：com.jacky.di.setter.bean包下
+	
+3). 注入内部Beans
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for textEditor bean using inner bean -->
+   <bean id="textEditor" class="com.tutorialspoint.TextEditor">
+      <property name="spellChecker">
+         <bean id="spellChecker" class="com.tutorialspoint.SpellChecker"/>
+       </property>
+   </bean>
+
+</beans>
+```
+	
+	测试代码：com.jacky.di.innerClass.bean包下
+
+4). 注入集合
+* 已学习：value 属性来配置基本数据类型
+* 已学习：ref 属性来配置对象引用
+* 本节学习：Spring 提供了四种类型的集合的配置元素（List、Set、Map 和 Properties）
+
+元素      |	描述
+--------	-    --------
+<list>	|它有助于连线，如注入一列值，允许重复。
+<set>	|它有助于连线一组值，但不能重复。
+<map>	|它可以用来注入名称-值对的集合，其中名称和值可以是任何类型。
+<props>	它可以用来注入名称-值对的集合，其中名称和值都是字符串类型。
+
 
 
 标题
