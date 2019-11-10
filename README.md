@@ -287,7 +287,7 @@ props	        |    它可以用来注入名称-值对的集合，其中名称和
 * 集合配置（注入null）
 ```
 <bean id="..." class="exampleBean">
-   <property name="email"><font color="red"><null/></font></property>
+   <property name="email"><null/></property>
 </bean>
 ```
 
@@ -298,8 +298,20 @@ props	        |    它可以用来注入名称-值对的集合，其中名称和
 </bean>
 ```
 
+	测试代码：com.jacky.collection.bean包下
+	
 
+## 3、Spring Bean自动装配
 
+1). 自动装配模式
+
+模式	       |  描述
+--         |  ----
+no	       |   这是默认的设置，它意味着没有自动装配，你应该使用显式的bean引用来连线。你不用为了连线做特殊的事。在依赖注入章节你已经看到这个了。
+byName	   |   由属性名自动装配。Spring 容器看到在 XML 配置文件中 bean 的自动装配的属性设置为 byName。然后尝试匹配，并且将它的属性与在配置文件中被定义为相同名称的 beans 的属性进行连接。
+byType	   |   由属性数据类型自动装配。Spring 容器看到在 XML 配置文件中 bean 的自动装配的属性设置为 byType。然后如果它的类型匹配配置文件中的一个确切的 bean 名称，它将尝试匹配和连接属性的类型。如果存在不止一个这样的 bean，则一个致命的异常将会被抛出。
+constructor |  	类似于 byType，但该类型适用于构造函数参数类型。如果在容器中没有一个构造函数参数类型的 bean，则一个致命错误将会发生。
+autodetect	| Spring首先尝试通过 constructor 使用自动装配来连接，如果它不执行，Spring 尝试通过 byType 来自动装配。
 
 
 标题
