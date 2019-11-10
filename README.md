@@ -287,7 +287,7 @@ props	        |    它可以用来注入名称-值对的集合，其中名称和
 * 集合配置（注入null）
 ```
 <bean id="..." class="exampleBean">
-   <property name="email"><null/></property>
+   <property name="email"><font color="red"><null/></font></property>
 </bean>
 ```
 
