@@ -389,12 +389,15 @@ autodetect	| Spring首先尝试通过 constructor 使用自动装配来连接，
 
 2) 注解的种类
 
-序号           ｜	    注解 & 描述
---------       |    --------
+
+序号            ｜	    注解 & 描述
+--------       |    ----------
 1	            |   @Required  @Required 注解应用于 bean 属性的 setter 方法。
 2	            |   @Autowired  @Autowired 注解可以应用到 bean 属性的 setter 方法，非 setter 方法，构造函数和属性。
 3	            |   @Qualifier  通过指定确切的将被连线的 bean，@Autowired 和 @Qualifier 注解可以用来删除混乱。
 4	            |   JSR-250 Annotations  Spring 支持 JSR-250 的基础的注解，其中包括了 @Resource，@PostConstruct 和 @PreDestroy 注解。
+
+
 
 标题
 ====
