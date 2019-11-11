@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 显示依赖注入(setter方式) -->
+<!-- 	<bean id="textEditor" class="com.jacky.autowire.byName.bean.TextEditor">
+		<property name="spellChecker" ref="spellChecker"></property>
+		<property name="name" value="Generic Text Editor"></property>
+	</bean>
+	
+	<bean id="spellChecker" class="com.jacky.autowire.byName.bean.SpellChecker"></bean> -->
+	
+	<!-- 自动依赖注入(byName) -->
+	<bean id="textEditor" class="com.jacky.autowire.byName.bean.TextEditor" autowire="byName">
+		<property name="name" value="Generic Text Editor"></property>
+	</bean>
+	
+	<bean id="spellChecker" class="com.jacky.autowire.byName.bean.SpellChecker"></bean>
+
+
+</beans>

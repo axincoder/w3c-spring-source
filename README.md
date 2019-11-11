@@ -313,6 +313,88 @@ byType	   |   由属性数据类型自动装配。Spring 容器看到在 XML 配
 constructor |  	类似于 byType，但该类型适用于构造函数参数类型。如果在容器中没有一个构造函数参数类型的 bean，则一个致命错误将会发生。
 autodetect	| Spring首先尝试通过 constructor 使用自动装配来连接，如果它不执行，Spring 尝试通过 byType 来自动装配。
 
+2). 自动装配( byName )
+* 显示的依赖注入(setter方式)
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for textEditor bean -->
+   <bean id="textEditor" class="com.tutorialspoint.TextEditor">
+       <property name="spellChecker" ref="spellChecker" />
+       <property name="name" value="Generic Text Editor" />
+   </bean>
+
+   <!-- Definition for spellChecker bean -->
+   <bean id="spellChecker" class="com.tutorialspoint.SpellChecker">
+   </bean>
+
+</beans>
+```
+
+* 自动的依赖注入(byName）
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for textEditor bean -->
+   <bean id="textEditor" class="com.tutorialspoint.TextEditor" 
+      autowire="byName">
+      <property name="name" value="Generic Text Editor" />
+   </bean>
+
+   <!-- Definition for spellChecker bean -->
+   <bean id="spellChecker" class="com.tutorialspoint.SpellChecker">
+   </bean>
+
+</beans>
+```
+
+	测试代码: com.jacky.autowire.byName.bean包下
+
+3). 自动装配( byType )
+
+	同“byName”，配置时差别为autowire="byName"修改为autowire="byType"
+	
+4). 由构造函数自动装配
+
+
+## 3、Spring基于注解的配置
+
+1). 开启注解功能
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+   <context:annotation-config/>
+   <!-- bean definitions go here -->
+
+</beans>
+```
+
+2) 注解的种类
+
+序号           ｜	注解 & 描述
+--------       |--------
+1	            |@Required  @Required 注解应用于 bean 属性的 setter 方法。
+2	            |@Autowired  @Autowired 注解可以应用到 bean 属性的 setter 方法，非 setter 方法，构造函数和属性。
+3	            |@Qualifier  通过指定确切的将被连线的 bean，@Autowired 和 @Qualifier 注解可以用来删除混乱。
+4	            |JSR-250 Annotations  Spring 支持 JSR-250 的基础的注解，其中包括了 @Resource，@PostConstruct 和 @PreDestroy 注解。
 
 标题
 ====
