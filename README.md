@@ -390,7 +390,7 @@ autodetect	| Spring首先尝试通过 constructor 使用自动装配来连接，
 2) 注解的种类
 
 
-序号            ｜	    注解 & 描述
+序号            ｜	    注解
 --------       |    ----------
 1	            |   @Required  @Required 注解应用于 bean 属性的 setter 方法。
 2	            |   @Autowired  @Autowired 注解可以应用到 bean 属性的 setter 方法，非 setter 方法，构造函数和属性。
