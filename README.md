@@ -397,6 +397,75 @@ autodetect	| Spring首先尝试通过 constructor 使用自动装配来连接，
 3	            |   @Qualifier  通过指定确切的将被连线的 bean，@Autowired 和 @Qualifier 注解可以用来删除混乱。
 4	            |   JSR-250 Annotations  Spring 支持 JSR-250 的基础的注解，其中包括了 @Resource，@PostConstruct 和 @PreDestroy 注解。
 
+3). Required注释
+
+* @Required 注释应用于 bean 属性的 setter 方法  
+	
+	测试代码：com.jacky.annocation.required.bean
+	
+4). @Autowired 注释
+
+* 在Bean的属性，或构造方法前使用@Autowried注释后，Bean中就可以不在需要getter、setter方法了。
+* @Autowired(required=false/ture)，表示依赖的咨询是否为强制的。
+
+	测试代码：com.jacky.annocation.autowired.bean
+	
+5). @Qualifier 注解
+
+* 当你创建多个具有相同类型的 bean 时，并且想要用一个属性只为它们其中的一个进行装配，在这种情况下，你可以使用 @Qualifier 注释和 @Autowired 注释通过指定哪一个真正的 bean 将会被装配来消除混乱。如：
+
+```
+package com.tutorialspoint;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+public class Profile {
+   @Autowired
+   @Qualifier("student1")
+   private Student student;
+   public Profile(){
+      System.out.println("Inside Profile constructor." );
+   }
+   public void printAge() {
+      System.out.println("Age : " + student.getAge() );
+   }
+   public void printName() {
+      System.out.println("Name : " + student.getName() );
+   }
+}
+
+
+<!-- Definition for profile bean -->
+   <bean id="profile" class="com.tutorialspoint.Profile">
+   </bean>
+
+   <!-- Definition for student1 bean -->
+   <bean id="student1" class="com.tutorialspoint.Student">
+      <property name="name"  value="Zara" />
+      <property name="age"  value="11"/>
+   </bean>
+
+   <!-- Definition for student2 bean -->
+   <bean id="student2" class="com.tutorialspoint.Student">
+      <property name="name"  value="Nuha" />
+      <property name="age"  value="2"/>
+   </bean>
+```
+
+	测试代码：com.jacky.annocation.qualifier.bean包下
+	
+
+6) 基于Java的配置
+
+* 不需要XML文件，配置spring依赖关系
+
+	测试代码: com.jacky.annocation.configuration.bean包下
+
+
+## 4、Spring框架的AOP
+
+
+
+
 
 
 标题
