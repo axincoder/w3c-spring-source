@@ -188,7 +188,11 @@ public class MainApp {
 }
 ```
 
-
+	测试代码：com.jacky.aop.xml.bean包下
 
 
 #### 三、基于AOP的@AspectJ
+
+基于AspectJ实现AOP功能。后续将专题说明
+
+	测试代码：com.jacky.aop.aspect.ben包下
